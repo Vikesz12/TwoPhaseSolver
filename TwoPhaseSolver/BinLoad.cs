@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Reflection;
 
 namespace TwoPhaseSolver
 {
@@ -11,7 +12,8 @@ namespace TwoPhaseSolver
     {
         public static byte[][] getUdToPerm(string path)
         {
-            var raw = File.OpenRead(path);
+            var normalizedPath = GetNormalizedPath(path);
+            var raw = File.OpenRead(normalizedPath);
             byte[][] values = new byte[Constants.N_UD][];
             byte[] c;
 
@@ -35,7 +37,8 @@ namespace TwoPhaseSolver
 
         public static ushort[,] loadShortTable2D(string path, int chunksize = 18)
         {
-            var bytes = File.ReadAllBytes(path);
+            var normalizedPath = GetNormalizedPath(path);
+            var bytes = File.ReadAllBytes(normalizedPath);
             int len1d = bytes.Length / chunksize / 2;
             ushort[,] values = new ushort[len1d, chunksize];
             int i, j;
@@ -56,7 +59,15 @@ namespace TwoPhaseSolver
 
         public static PruneTable loadPruneTable(string path)
         {
-            return new PruneTable(File.ReadAllBytes(path));
+            var normalizedPath = GetNormalizedPath(path);
+            return new PruneTable(File.ReadAllBytes(normalizedPath));
+        }
+
+        private static string GetNormalizedPath(string path)
+        {
+            var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var filePathRelativeToAssembly = Path.Combine(assemblyPath, path);
+            return Path.GetFullPath(filePathRelativeToAssembly);
         }
     }
 }
