@@ -46,14 +46,44 @@
     <Compile Include="Cube.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="PruneTable.cs" />
     <Compile Include="Search.cs" />
     <Compile Include="Tools.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tables\move\co_move" />
+    <None Include="tables\move\cp_move" />
+    <None Include="tables\move\ds_move" />
+    <None Include="tables\move\eo_move" />
+    <None Include="tables\move\ep2_move" />
+    <None Include="tables\move\uds_move" />
+    <None Include="tables\move\ud_move" />
+    <None Include="tables\move\us_move" />
+    <None Include="tables\other\combi" />
+    <None Include="tables\other\ep2_merge" />
+    <None Include="tables\prune\co_ud_prun" />
+    <None Include="tables\prune\cp_ud2_prun" />
+    <None Include="tables\prune\eo_ud_prun" />
+    <None Include="tables\prune\ep2_ud2_prun" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir  "$(TargetDir)\tables"
-XCOPY "$(ProjectDir)tables" "$(TargetDir)\tables" /s /y</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

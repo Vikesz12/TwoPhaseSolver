@@ -36,10 +36,10 @@ namespace TwoPhaseSolver
 
         // Prune tables
 
-        public static readonly PruneTable pruneCO = BinLoad.loadPruneTable("tables\\prune\\co_ud_prun");
-        public static readonly PruneTable pruneEO = BinLoad.loadPruneTable("tables\\prune\\eo_ud_prun");
+        public static readonly PruneTable pruneCO = new PruneTable(Properties.Resources.co_ud_prun);
+        public static readonly PruneTable pruneEO = new PruneTable(Properties.Resources.eo_ud_prun);
 
-        public static readonly PruneTable pruneCP = BinLoad.loadPruneTable("tables\\prune\\cp_ud2_prun");
-        public static readonly PruneTable pruneEP2 = BinLoad.loadPruneTable("tables\\prune\\ep2_ud2_prun");
+        public static readonly PruneTable pruneCP = new PruneTable(Properties.Resources.cp_ud2_prun);
+        public static readonly PruneTable pruneEP2 = new PruneTable(Properties.Resources.ep2_ud2_prun);
     }
 }

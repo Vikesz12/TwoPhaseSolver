@@ -214,19 +214,19 @@ namespace TwoPhaseSolver
     {
         // Move tables, max size 8! * 18 = 725760
 
-        public static readonly ushort[,] moveCO = BinLoad.loadShortTable2D("tables\\move\\co_move");
-        public static readonly ushort[,] moveEO = BinLoad.loadShortTable2D("tables\\move\\eo_move");
-        public static readonly ushort[,] moveUD = BinLoad.loadShortTable2D("tables\\move\\ud_move");
+        public static readonly ushort[,] moveCO = BinLoad.loadShortTable2D(Properties.Resources.co_move);
+        public static readonly ushort[,] moveEO = BinLoad.loadShortTable2D(Properties.Resources.eo_move);
+        public static readonly ushort[,] moveUD = BinLoad.loadShortTable2D(Properties.Resources.ud_move);
 
-        public static readonly ushort[,] moveCP = BinLoad.loadShortTable2D("tables\\move\\cp_move");
-        public static readonly ushort[,] moveEP2 = BinLoad.loadShortTable2D("tables\\move\\ep2_move");
-        public static readonly ushort[,] moveUDS = BinLoad.loadShortTable2D("tables\\move\\uds_move");
+        public static readonly ushort[,] moveCP = BinLoad.loadShortTable2D(Properties.Resources.cp_move);
+        public static readonly ushort[,] moveEP2 = BinLoad.loadShortTable2D(Properties.Resources.ep2_move);
+        public static readonly ushort[,] moveUDS = BinLoad.loadShortTable2D(Properties.Resources.uds_move);
 
-        public static readonly ushort[,] moveUS = BinLoad.loadShortTable2D("tables\\move\\us_move");
-        public static readonly ushort[,] moveDS = BinLoad.loadShortTable2D("tables\\move\\ds_move");
+        public static readonly ushort[,] moveUS = BinLoad.loadShortTable2D(Properties.Resources.us_move);
+        public static readonly ushort[,] moveDS = BinLoad.loadShortTable2D(Properties.Resources.ds_move);
 
         // Merge table (US-DS to EP2), size 11880 * 24 = 285120
 
-        public static readonly ushort[,] mergeEP2 = BinLoad.loadShortTable2D("tables\\other\\ep2_merge", 24);
+        public static readonly ushort[,] mergeEP2 = BinLoad.loadShortTable2D(Properties.Resources.ep2_merge, 24);
     }
 }

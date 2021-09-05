@@ -10,10 +10,9 @@ namespace TwoPhaseSolver
 {
     static class BinLoad
     {
-        public static byte[][] getUdToPerm(string path)
+        public static byte[][] getUdToPerm(byte[] bytes)
         {
-            var normalizedPath = GetNormalizedPath(path);
-            var raw = File.OpenRead(normalizedPath);
+            var raw = new MemoryStream(bytes);
             byte[][] values = new byte[Constants.N_UD][];
             byte[] c;
 
@@ -35,10 +34,8 @@ namespace TwoPhaseSolver
             return values;
         }
 
-        public static ushort[,] loadShortTable2D(string path, int chunksize = 18)
+        public static ushort[,] loadShortTable2D(byte[] bytes, int chunksize = 18)
         {
-            var normalizedPath = GetNormalizedPath(path);
-            var bytes = File.ReadAllBytes(normalizedPath);
             int len1d = bytes.Length / chunksize / 2;
             ushort[,] values = new ushort[len1d, chunksize];
             int i, j;
@@ -55,19 +52,6 @@ namespace TwoPhaseSolver
             }
 
             return values;
-        }
-
-        public static PruneTable loadPruneTable(string path)
-        {
-            var normalizedPath = GetNormalizedPath(path);
-            return new PruneTable(File.ReadAllBytes(normalizedPath));
-        }
-
-        private static string GetNormalizedPath(string path)
-        {
-            var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var filePathRelativeToAssembly = Path.Combine(assemblyPath, path);
-            return Path.GetFullPath(filePathRelativeToAssembly);
         }
     }
 }

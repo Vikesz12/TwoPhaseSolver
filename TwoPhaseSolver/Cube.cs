@@ -40,7 +40,7 @@ namespace TwoPhaseSolver
                       +---------+
         */
 
-        private static byte[][] udToPerm = BinLoad.getUdToPerm("tables\\other\\combi");
+        private static byte[][] udToPerm = BinLoad.getUdToPerm(Properties.Resources.combi);
 
         private static byte[] Facelets = new byte[48]
         {
